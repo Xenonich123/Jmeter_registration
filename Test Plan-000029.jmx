@@ -42,7 +42,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">19</stringProp>
+        <stringProp name="ThreadGroup.num_threads">40</stringProp>
         <stringProp name="ThreadGroup.ramp_time">20</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
@@ -64,7 +64,7 @@
           <stringProp name="variableNames">username,password,firstName,lastName,address1,address2</stringProp>
         </CSVDataSet>
         <hashTree/>
-        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Registration_users" enabled="false"/>
+        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Registration_users" enabled="true"/>
         <hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
@@ -674,9 +674,14 @@
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
               <stringProp name="ConstantTimer.delay">200</stringProp>
             </ConstantTimer>
+            <hashTree/>
+            <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">1000</stringProp>
+              <stringProp name="RandomTimer.range">300</stringProp>
+            </GaussianRandomTimer>
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="buy_tickets_open" enabled="true">
@@ -873,8 +878,8 @@
               <hashTree/>
             </hashTree>
             <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
-              <stringProp name="ConstantTimer.delay">200</stringProp>
-              <stringProp name="RandomTimer.range">100.0</stringProp>
+              <stringProp name="ConstantTimer.delay">1000</stringProp>
+              <stringProp name="RandomTimer.range">300</stringProp>
             </GaussianRandomTimer>
             <hashTree/>
           </hashTree>
@@ -1332,6 +1337,11 @@ vars.put(&quot;numPassengers&quot;, numPassengers)
               <boolProp name="displaySystemProperties">false</boolProp>
             </DebugSampler>
             <hashTree/>
+            <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">1000</stringProp>
+              <stringProp name="RandomTimer.range">200</stringProp>
+            </GaussianRandomTimer>
+            <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="buy_ticketst_confirm" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
@@ -1490,6 +1500,11 @@ addHttp(&quot;reserveFlights.x&quot;, &quot;44&quot;)
 addHttp(&quot;reserveFlights.y&quot;, &quot;10&quot;)
 </stringProp>
             </JSR223PreProcessor>
+            <hashTree/>
+            <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+              <stringProp name="RandomTimer.range">200</stringProp>
+            </GaussianRandomTimer>
             <hashTree/>
           </hashTree>
           <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="buy_tickets_frankfurt_confirm1" enabled="true">
@@ -1732,6 +1747,11 @@ addHttp(&quot;.cgifields&quot;, &quot;saveCC&quot;)
 </stringProp>
             </JSR223PreProcessor>
             <hashTree/>
+            <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">600</stringProp>
+              <stringProp name="RandomTimer.range">200</stringProp>
+            </GaussianRandomTimer>
+            <hashTree/>
           </hashTree>
         </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Itinerary_cancel_all" enabled="true">
@@ -1739,7 +1759,7 @@ addHttp(&quot;.cgifields&quot;, &quot;saveCC&quot;)
           <boolProp name="TransactionController.parent">false</boolProp>
         </TransactionController>
         <hashTree>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="sign off" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="sign_off" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
             <boolProp name="TransactionController.parent">false</boolProp>
           </TransactionController>
@@ -2464,7 +2484,7 @@ addHttp(&quot;.cgifields&quot;, &quot;saveCC&quot;)
             <stringProp name="RegexExtractor.match_number">-1</stringProp>
           </RegexExtractor>
           <hashTree/>
-          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="cancel all" enabled="true">
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="cancel_all" enabled="true">
             <boolProp name="TransactionController.includeTimers">false</boolProp>
             <boolProp name="TransactionController.parent">false</boolProp>
           </TransactionController>
@@ -2716,6 +2736,64 @@ sampler.addArgument(&quot;.cgifields&quot;, &quot;1&quot;)</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="true">
+        <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="influxdbMetricsSender" elementType="Argument">
+              <stringProp name="Argument.name">influxdbMetricsSender</stringProp>
+              <stringProp name="Argument.value">org.apache.jmeter.visualizers.backend.influxdb.HttpMetricsSender</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="influxdbUrl" elementType="Argument">
+              <stringProp name="Argument.name">influxdbUrl</stringProp>
+              <stringProp name="Argument.value">http://localhost:8086/api/v2/write?org=1&amp;bucket=Jmeter&amp;precision=ns</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="application" elementType="Argument">
+              <stringProp name="Argument.name">application</stringProp>
+              <stringProp name="Argument.value">app</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="measurement" elementType="Argument">
+              <stringProp name="Argument.name">measurement</stringProp>
+              <stringProp name="Argument.value">jmeter</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="summaryOnly" elementType="Argument">
+              <stringProp name="Argument.name">summaryOnly</stringProp>
+              <stringProp name="Argument.value">false</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="samplersRegex" elementType="Argument">
+              <stringProp name="Argument.name">samplersRegex</stringProp>
+              <stringProp name="Argument.value">.*</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="percentiles" elementType="Argument">
+              <stringProp name="Argument.name">percentiles</stringProp>
+              <stringProp name="Argument.value">90;95;99</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="testTitle" elementType="Argument">
+              <stringProp name="Argument.name">testTitle</stringProp>
+              <stringProp name="Argument.value">Test_plan</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="eventTags" elementType="Argument">
+              <stringProp name="Argument.name">eventTags</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="influxdbToken" elementType="Argument">
+              <stringProp name="Argument.name">influxdbToken</stringProp>
+              <stringProp name="Argument.value">q4vGwkGsL1pUlDtGj3iSt6W0qZkv-pOxzswNRwPhpAbF4yvmc1whW0CxnmxiwHEQCF0W9xKwKDwj3rZyU8QfTA==</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </elementProp>
+        <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
+      </BackendListener>
+      <hashTree/>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>
